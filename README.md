@@ -12,6 +12,12 @@
 - Install SQL Server and SQL Server Management Studio (SSMS) on the virtual machine.
 - Create the production database by restoring it from this [backup file](https://aicore-portal-public-prod-307050600709.s3.eu-west-1.amazonaws.com/project-files/93dd5a0c-212d-48eb-ad51-df521a9b4e9c/AdventureWorks2022.bak).
 
+## Milestone 3: Migrate to SQL 
+- Created an Azure SQL Database in the Azure Portal using SQL login as the authentication method.
+    -- This involved ensuring a firewall exception was created to allow a connection between the local and remote servers.
+- Established a connection between the local SQL database and the remote SQL database using Azure Data Studio, serving as a conduit for schema and data migration.
+- Installed the SQL Server Schema Compare extension within Azure Data Studio, and leveraged the extension to compare and subsequently migrate the schema from the on-premise database to the Azure SQL database.
+- Installed the Azure SQL Migration extension within Azure Data Studio , and leveraged the extension to transfer the data from the on-premise database to the Azure SQL Database.
 
 
   
