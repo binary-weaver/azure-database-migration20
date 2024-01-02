@@ -19,5 +19,13 @@
 - Installed the SQL Server Schema Compare extension within Azure Data Studio, and leveraged the extension to compare and subsequently migrate the schema from the on-premise database to the Azure SQL database.
 - Installed the Azure SQL Migration extension within Azure Data Studio , and leveraged the extension to transfer the data from the on-premise database to the Azure SQL Database.
 
+## Milestone 4:  Data Backup and Restore
+
+-  Generated a full backup of the on-premise database within SQL Server Management Studio.
+-  Configured an Azure Blob Storage account to serve as a secure online repository for database backups.
+-  Uploaded the database backup (.bak) file to the Blob Storage container.
+-  Provisioned a new Windows Virtual Machine to replicate the production environment and subsequently restored the database backup into this new "sandbox".
+-  Automated weekly backups by utilising SQL Server Management Studio to establish a Management Plan, ensuring consisten protection for evolving work and simple recovery of the development environment if required.
+
 
   
