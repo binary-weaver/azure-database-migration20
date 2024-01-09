@@ -1,16 +1,16 @@
 # azure-database-migration20
 
 ## Milestone 2: Set up a production environment
-- Create a Windows Virtual Machine on Azure with the following instance details:
-  -- Virtual Machine name: my-vm
-  -- Region: Pick the region geographically closest to you
-  -- Image: Windows 10/11 Pro
-  -- Size: Standard_B2ms
-  -- Set a username and password for authentication
-  --Ensure the Remote Desktop Protocol (RDP) port - port 3389 - is allowed in the Network Security Group (NSG) inbound rules for the virtual machine
-- Download the RDP file and connect to the virtual machine using an RDP client, logging in with the username and password created previously.
-- Install SQL Server and SQL Server Management Studio (SSMS) on the virtual machine.
-- Create the production database by restoring it from this [backup file](https://aicore-portal-public-prod-307050600709.s3.eu-west-1.amazonaws.com/project-files/93dd5a0c-212d-48eb-ad51-df521a9b4e9c/AdventureWorks2022.bak).
+- Created a Windows Virtual Machine on Azure with the following instance details:
+  - Virtual Machine name: my-vm
+  - Region: UK
+  - Image: Windows 10/11 Pro
+  - Size: Standard_B2ms
+  - Set a username and password for authentication
+  - Ensure the Remote Desktop Protocol (RDP) port - port 3389 - is allowed in the Network Security Group (NSG) inbound rules for the virtual machine
+- Downloaded the RDP file and connected to the virtual machine using an RDP client with the username and password created previously.
+- Installed SQL Server and SQL Server Management Studio (SSMS) on the virtual machine.
+- Created the production database by restoring it from this [backup file](https://aicore-portal-public-prod-307050600709.s3.eu-west-1.amazonaws.com/project-files/93dd5a0c-212d-48eb-ad51-df521a9b4e9c/AdventureWorks2022.bak).
 
 ## Milestone 3: Migrate to SQL 
 - Created an Azure SQL Database in the Azure Portal using SQL login as the authentication method.
@@ -27,5 +27,17 @@
 -  Provisioned a new Windows Virtual Machine to replicate the production environment and subsequently restored the database backup into this new "sandbox".
 -  Automated weekly backups by utilising SQL Server Management Studio to establish a Management Plan, ensuring consisten protection for evolving work and simple recovery of the development environment if required.
 
+## Milestone 5: Disaster Recovery Simulation
 
-  
+- Replicated a scenario where data integrity is compromised by deliberately removing data from the production database using Azure Data Studio on the production virtual machine.
+- Restored production database utilizing Azure SQL Database Backup.
+- Verified database was brought to a state just prior to the simulated disaster using Azure Data Studio to ensure all critical data was intact and functional.
+- Deleted the database that suffered data loss through the Azure portal.
+
+## Milestone 6: Geo Replication and Failover
+
+- Created a synchronised replica of my primary production database that resides on a separate SQL server located in a distant secondary geographical region.
+- Created a failover group on the primary SQL server within the Azure SQL Dashboard.
+- Orchestrated a planned failover to the secondary region.
+- Connected to the failover database in Azure Data Studio to verify its availability and data consistency.
+- Performed failback to the original primary region.
